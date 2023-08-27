@@ -1,4 +1,5 @@
 import 'matrix_operations.dart';
+import 'matrix.dart';
 
 class LowerTriangularMatrix implements MatrixOperationHandler {
   @override

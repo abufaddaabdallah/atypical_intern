@@ -1,3 +1,4 @@
+import 'matrix.dart';
 import 'matrix_operations.dart';
 
 void main() {
@@ -67,12 +68,12 @@ void main() {
   ]);
 
   final resultAdd =
-      operations.performOperation(MatrixOperation.add, matrixA, matrixB);
-  final resultScalar = operations.performOperation(
-      MatrixOperation.scalarMultiplication, matrixScalar);
+      operations.performOperation2(MatrixOperation.add, matrixA, matrixB);
+  // final resultScalar = operations.performOperation(
+  //     MatrixOperation.scalarMultiplication, matrixScalar);
   final resultTranspose = operations.performOperation(
       MatrixOperation.transpose, matrixTransposition);
-  final resultMultiply = operations.performOperation(
+  final resultMultiply = operations.performOperation2(
       MatrixOperation.multiply, matrixMultiplyA, matrixMultiplyB);
   final resultDiagonal =
       operations.performOperation(MatrixOperation.diagonal, matrixDiagonal);
@@ -86,25 +87,25 @@ void main() {
       MatrixOperation.determinant, matrixDeterminant);
 
   print("Matrix Addition:");
-  resultAdd!.printMatrix;
+  print(resultAdd);
 
   print("\nScalar Multiplication:");
-  resultScalar!.printMatrix;
+  // resultScalar!.printMatrix;
   print("\nMatrix Transposition:");
-  resultTranspose!.printMatrix;
+  print(resultTranspose);
   print("\nMatrix Multiplication:");
-  resultMultiply!.printMatrix;
-
+  print(resultMultiply);
   print("\nDiagonal Matrix:");
   resultDiagonal!.printMatrix;
+  print(resultDiagonal);
 
   print("\nLower Triangular Matrix:");
-  resultLowerTriangular!.printMatrix;
+  print(resultLowerTriangular);
 
   print("\nUpper Triangular Matrix:");
-  resultUpperTriangular!.printMatrix;
+  print(resultUpperTriangular);
   print("\nSub Matrix:");
-  resultSub!.printMatrix;
+  print(resultSub);
   print("\nDeterminany Matrix:");
-  resultDeterminant!.printMatrix;
+  print(resultDeterminant);
 }

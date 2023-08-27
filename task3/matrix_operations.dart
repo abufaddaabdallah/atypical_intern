@@ -2,6 +2,7 @@ import 'add_matrices.dart';
 import 'determine_matrix.dart';
 import 'diagonal_matrix.dart';
 import 'lower_triangular_matrix.dart';
+import 'matrix.dart';
 import 'multiply_matrices.dart';
 import 'scalar_matrix.dart';
 import 'sub_matrix.dart';
@@ -20,23 +21,6 @@ enum MatrixOperation {
   determinant,
 }
 
-class Matrix {
-  List<List<int>> values;
-
-  Matrix(this.values);
-
-  Matrix copy() {
-    return Matrix(
-        List.generate(values.length, (i) => List<int>.from(values[i])));
-  }
-
-  void printMatrix() {
-    for (var row in values) {
-      print(row);
-    }
-  }
-}
-
 class MatrixOperations {
   final Map<MatrixOperation, MatrixOperationHandler> _operationHandlers = {
     MatrixOperation.add: MatrixAdder(),
@@ -50,7 +34,10 @@ class MatrixOperations {
     MatrixOperation.multiply: MatrixMultiplier(),
   };
 
-  Matrix? performOperation(MatrixOperation operation, Matrix matrixA,
+  Matrix? performOperation(MatrixOperation operation, Matrix matrixA) {
+    return _operationHandlers[operation]?.performOperation(matrixA);
+  }
+  Matrix? performOperation2(MatrixOperation operation, Matrix matrixA,
       [Matrix? matrixB]) {
     return _operationHandlers[operation]?.performOperation(matrixA, matrixB!);
   }

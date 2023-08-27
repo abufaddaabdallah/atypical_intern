@@ -1,3 +1,4 @@
+import 'matrix.dart';
 import 'matrix_operations.dart';
 
 class TransposeMatrix implements MatrixOperationHandler {
